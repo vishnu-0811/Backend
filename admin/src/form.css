@@ -1,0 +1,49 @@
+.wrapper {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn1 {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn1:hover {
+  background-color: black;
+}
+
+table {
+  width: 100%;
+}
+
+table td {
+  padding: 8px;
+}
+
+table input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+h3 {
+  margin-bottom: 15px;
+}
