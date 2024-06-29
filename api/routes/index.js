@@ -1,7 +1,8 @@
 const express = require('express');
-const {adminController, userController, categoryController, subcatController} = require('../controller');
+const {adminController, userController, categoryController, subcatController, productController} = require('../controller');
 const multer = require('multer');
-const path = require("path")
+const path = require("path");
+// const productController = require('../controller/productController');
 
 
 
@@ -30,11 +31,15 @@ router.post("/category",categoryController.store)
 router.get("/category",categoryController.show);
 router.delete("/category/:id",categoryController.delete);
 
-router.post("/product",upload.single("image"),subcatController.store);
-router.get("/product",subcatController.show);
-router.delete("/product/:id",subcatController.delete);
+router.post("/product",upload.single("image"),productController.store);
+router.get("/product",productController.show);
+router.delete("/product/:id",productController.delete);
 
-router.get("/product",subcatController.find)
+router.get("/product",productController.find)
+
+router.post("/subcat",subcatController.store);
+router.get("/subcat",subcatController.show);
+router.get("/subcat/populate",subcatController.display);
 
 
 module.exports = router;

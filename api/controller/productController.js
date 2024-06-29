@@ -1,14 +1,14 @@
-const Product = require("../model/sucatModel");
+const Product = require("../model/productModel");
 // const { store } = require("./adminController");
 
 
-const subcatController = {
+const productController = {
 
     async store(req, res) {
         let pro;
         try{
-            const { subcategory, productname, price, description} = req.body;
-            pro = await Product.create({ subcategory, productname, price, description, image: "upload/category/image/" +req.file.filename });
+            const { category,subcategory, productname, price, description} = req.body;
+            pro = await Product.create({ category,subcategory, productname, price, description, image: "upload/category/image/" +req.file.filename });
         }
         catch(error){
             res.status(404).json({ error:"Server Error", serverError:error })
@@ -20,6 +20,17 @@ const subcatController = {
         let display;
         try{
             display = await Product.find();
+        }
+        catch(error){
+            res.status(404).json({ error:"Server Error", serverError:error })
+        }
+        res.status(200).json( display );
+    },
+
+    async show(req, res)  {
+        let display;
+        try{
+            display = await Product.find().populate("category,subcategory");
         }
         catch(error){
             res.status(404).json({ error:"Server Error", serverError:error })
@@ -52,4 +63,4 @@ const subcatController = {
     }
 }
 
-module.exports = subcatController;
+module.exports = productController;

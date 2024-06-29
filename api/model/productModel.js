@@ -4,7 +4,8 @@ const { BASE_URL } = require("../config")
 
 const productSchema = new Schema (
     {
-        subcategory:{type:String},
+        category:{type:Schema.Types.ObjectId, ref:"Category"},
+        subcategory:{type:Schema.Types.ObjectId, ref:"Subcategory"},
         productname:{type:String},
         price:{type:String},
         description:{type:String},
