@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import "../tab.css"
+import { useParams } from 'react-router-dom'
 
 const ViewCat = ({ title1 }) => {
+    let {id} =useParams()
+    console.log(id)
 
     const [items,setItems] = useState([]);
     const [reload,setReload] = useState(false);

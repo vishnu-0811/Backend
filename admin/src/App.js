@@ -6,6 +6,8 @@ import Login from './component/Login';
 import AddCategory from './component/AddCategory';
 import AddProduct from './component/AddProduct';
 import ViewCat from './component/ViewCat';
+import AddSubcategory from './component/AddSubcategory';
+import ViewSubcat from './component/ViewSubcat';
 
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
               {/* <Route index element = {<AdminPanel/>} />  */}
               <Route path='/AddCategory' element = {<AddCategory/>} />
               <Route path='/ViewCat' element = { <ViewCat/> } />
+              <Route path='/AddSubcategory' element = {<AddSubcategory/>} />
+              <Route path='/ViewSubcat' element={<ViewSubcat/>} />
               <Route path='/AddProduct' element = {<AddProduct/>} />
               <Route path='/View' element = {<View/>} /> 
               <Route path='/Login' element = {<Login/>} /> 
