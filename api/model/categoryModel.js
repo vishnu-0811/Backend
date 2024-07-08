@@ -4,12 +4,19 @@ const Schema = mongoose.Schema;
 
 const categoryController = new Schema (
     {
-        category:{type:String}
-        // name:{type:String},
-        // email:{type:String},
+        category:{type:String},
+        image:{ type:String,
+            get:(image)=>{
+                return `${BASE_URL}${image}`;
+            }
+
+        }
+     
     },
     {
         timestamps:true,
+        toJSON:{getters:true}
+
     }
 );
 

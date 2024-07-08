@@ -62,7 +62,7 @@ const AddSubcategory = () => {
               if(data){
              
                 console.log("object",data)
-                navigate("/ViewSubcat");
+                navigate("/AddSubcategory");
               }
               else{
                 alert(data.error || "unkown") 

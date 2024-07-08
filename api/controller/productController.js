@@ -7,7 +7,7 @@ const productController = {
         let product;
         try{
             const { category,subcategory,productname,price,description} = req.body;
-            product = await Product.create({category,subcategory,productname,price,description, image:"upload/category/image/" +req.file.filename })
+            product = await Product.create({category,subcategory,productname,price,description, image:"upload/product/image/" +req.file.filename })
           
         }
         catch(error) {
@@ -38,7 +38,20 @@ const productController = {
             res.status(404).json({ error:"Server Error", srverError:error })
         }
         res.status(200).json(del);
-    }
+    },
+
+    async sortwithid(req,res) {
+        let show;
+        try{
+            const {id} = req.params;
+            show = await Product.find({subcategory : id }).populate("subcategory");
+            console.log(id)
+        }
+        catch(error) {
+            res.status(404).json({error:"Server Error", serverError:error });
+        }
+        res.status(200).json(show);
+    },
 
     
 }

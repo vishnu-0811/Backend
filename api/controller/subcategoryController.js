@@ -6,7 +6,7 @@ const subcatController = {
         let sub;
         try{
             const { category, subcategory } = req.body;
-            sub = await Subcategory.create({ category, subcategory });
+            sub = await Subcategory.create({ category, subcategory, image:"upload/subcategory/image/" +req.file.filename });
         }
         catch( error ){
             res.status(404).json({ error:"Server Error", serverError:error });
@@ -29,7 +29,8 @@ const subcatController = {
         let show;
         try{
             const {id} = req.params;
-            show = await Subcategory.find({category:id }).populate("category");
+            show = await Subcategory.find({category : id }).populate("category");
+            console.log(id)
         }
         catch(error) {
             res.status(404).json({error:"Server Error", serverError:error });

@@ -6,7 +6,7 @@ const categoryController = {
         let add;
         try{
             const { category } = req.body
-            add = await Category.create({ category })
+            add = await Category.create({ category, image:"upload/category/image/"+req.file.filename })
         }
         catch (error){
             res.status(401).json({ error:" Server Error " , serverError:error} )
@@ -35,6 +35,26 @@ const categoryController = {
             res.status(404).json({ error:"Server Error", srverError:error })
         }
         res.status(200).json(del);
+    },
+
+    async look(req,res,next){
+        let add;
+        try{
+            add = await Category.aggregate([
+                {
+                    $lookup: {
+                      from: "subcategories",
+                      localField: "_id",
+                      foreignField: "category",
+                      as: "subcategory"
+                    }
+                  }
+            ])
+        }
+        catch(error){
+            res.status(404).json({ error: "Server Error", serverError:error })
+        }
+        res.status(201).json(add);
     }
 }
 

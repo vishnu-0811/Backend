@@ -46,6 +46,7 @@ const ViewCat = ({ title1 }) => {
             <thead>
             <tr>
                 <th>Category</th>
+                <th>Image</th>
                 <th>Delete</th>
             </tr>
             </thead>
@@ -54,6 +55,7 @@ const ViewCat = ({ title1 }) => {
             {items.map((item) => (
                 <tr key={item.id}> 
                     <td>{item.category}</td>
+                    <td> <img src={item.image} alt="" height='100px' /> </td>
                     <td> <button className='btn' onClick={() => deleteData(item._id)} > Delete </button> </td>
                 </tr>
             ))}

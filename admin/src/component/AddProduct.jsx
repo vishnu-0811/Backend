@@ -116,7 +116,7 @@ const AddProduct = () => {
                 <label htmlFor="">Subcategory</label>
                 
                 <select name='subcategory' value={formData.subcategory} id="" onChange={handleInput}>
-                  <option value="">select subcategories</option>
+                  <option value="">Select subcategories</option>
                 {subcategories.map((subcategory) => (
                   <option key={subcategory._id} value={subcategory._id} > {subcategory.subcategory} </option>
                 ))}

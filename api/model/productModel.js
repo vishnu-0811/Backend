@@ -14,7 +14,8 @@ const productSchema = new Schema(
                 return `${BASE_URL}${image}`;
             }
 
-        }
+        },
+        // images:{type:Schema.Types.ObjectId, ref:"Slider"}
     },
     {
         timestamps:true,

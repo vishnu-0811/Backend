@@ -7,6 +7,7 @@ const AddCategory = () => {
   const [formData,setFormData] = useState({
     category:"",
     id:"",
+    image:""
     
   });
 
